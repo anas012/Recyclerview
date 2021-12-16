@@ -19,7 +19,7 @@ public class adpter extends RecyclerView.Adapter<adpter.ViewHolder> {
  }
     @Override
     public adpter.ViewHolder onCreateViewHolder(@NonNull  ViewGroup parent, int viewType) {
-    View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.items_design,parent,false);
+    View view =LayoutInflater.from(parent.getContext()).inflate(R.layout.items_design,parent,false);
     return new ViewHolder(view);
  }
 
@@ -30,6 +30,7 @@ public class adpter extends RecyclerView.Adapter<adpter.ViewHolder> {
         int Dob=friendsList.get(position).getDob();
         String City=friendsList.get(position).getCity();
         holder.setData(imgId,Name,Dob,City);
+
     }
 
     @Override
@@ -45,7 +46,7 @@ public class adpter extends RecyclerView.Adapter<adpter.ViewHolder> {
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-    imgview=itemView.findViewById(R.id.imageView);
+    imgview=itemView.findViewById(R.id.imgv);
     Name=itemView.findViewById(R.id.Name);
     Dob=itemView.findViewById(R.id.Dob);
     City=itemView.findViewById(R.id.city);

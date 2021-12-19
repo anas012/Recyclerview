@@ -6,12 +6,15 @@ public class friends {
     private String name;
     private int dob;
     private String city;
+    private int imgId;
 
-    public friends(int id, String name, int dob, String city) {
+    public friends(int id, String name, int dob, String city,int imgid) {
         this.id = id;
         this.name = name;
         this.dob = dob;
         this.city = city;
+        this.imgId=imgid;
+
     }
 
     public void setId(int id) {
@@ -46,6 +49,14 @@ public class friends {
         return city;
     }
 
+
+    public int getImgId() {
+        return imgId;
+    }
+
+    public void setImgId(int imgId) {
+        this.imgId = imgId;
+    }
 
 
 }

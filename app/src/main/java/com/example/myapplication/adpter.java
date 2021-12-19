@@ -1,5 +1,5 @@
 package com.example.myapplication;
-
+import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,9 +13,12 @@ import java.util.List;
 
 public class adpter extends RecyclerView.Adapter<adpter.ViewHolder> {
  private List<friends> friendsList;
- public adpter (List<friends> friendsList)
+    Activity mAct;
+ public adpter (List<friends> friendsList,Activity mAct)
+
  {
      this.friendsList=friendsList;
+     this.mAct = mAct;
  }
     @Override
     public adpter.ViewHolder onCreateViewHolder(@NonNull  ViewGroup parent, int viewType) {
@@ -25,11 +28,18 @@ public class adpter extends RecyclerView.Adapter<adpter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull adpter.ViewHolder holder, int position) {
-        int imgId=friendsList.get(position).getId();
-        String Name=friendsList.get(position).getName();
-        int Dob=friendsList.get(position).getDob();
-        String City=friendsList.get(position).getCity();
-        holder.setData(imgId,Name,Dob,City);
+holder.data=friendsList.get(position);
+holder.imgview.setImageResource(holder.data.getImgId());
+holder.Name.setText(holder.data.getName());
+holder.Dob.setText(String.valueOf(holder.data.getDob()));
+holder.City.setText(holder.data.getCity());
+
+     //        int id=friendsList.get(position).getId();
+//        int imgId=friendsList.get(position).getImgid();
+//        String Name=friendsList.get(position).getName();
+//        int Dob=friendsList.get(position).getDob();
+//        String City=friendsList.get(position).getCity();
+
 
     }
 
@@ -43,7 +53,7 @@ public class adpter extends RecyclerView.Adapter<adpter.ViewHolder> {
     private TextView Name;
     private TextView Dob;
     private TextView City;
-
+    friends data;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
     imgview=itemView.findViewById(R.id.imgv);
@@ -54,11 +64,6 @@ public class adpter extends RecyclerView.Adapter<adpter.ViewHolder> {
 
         }
 
-        public void setData(int id, String name, int dob, String city) {
-            imgview.setImageResource(id);
-            Name.setText(name);
-            Dob.setText(dob);
-            City.setText(city);
-        }
+
     }
 }
